@@ -1,16 +1,9 @@
 @import "tailwindcss";
 
 body { 
-   background: #28282B;
+  background: #F5EFE6;
+  margin: 0;
+  font-family: sans-serif;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
-/* Apply fade-in immediately */
-.fade-in {
-  opacity: 0;               /* start invisible */
-  animation: fade-in 1.5s ease-in forwards; /* fade in immediately */
-}

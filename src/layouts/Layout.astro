@@ -1,68 +1,20 @@
 ---
-import Nav from '../components/nav.astro';
-import "../styles/global.css"
+import "../styles/global.css";
+import Nav from "../components/nav.astro";
+import Preloader from "../components/preloader.astro";
 ---
 
-
-
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mon portail</title>
-
-    <style>
-      /* Fullscreen preloader */
-      #preloader {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #28282B;
-        z-index: 9999;
-      }
-
-      /* Fade-in animation for the text */
-      #preloader h1 {
-        color: white;
-        font-size: 3rem;
-        font-weight: bold;
-        opacity: 0;
-        animation: fadeIn 1.5s ease-in forwards;
-      }
-
-      @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-      }
-
-      /* Fade out preloader smoothly */
-      body.loaded #preloader {
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 1s ease-out, visibility 0s 1s; /* 1s fade out delay */
-      }
-    </style>
   </head>
-  <body>
-    <!-- Preloader overlay -->
-    <div id="preloader">
-      <h1>Mon Portail</h1>
-    </div>
-
-    <!-- Page content -->
-    <Nav />
-    <slot />
-
-    <script>
-      // Keep preloader visible longer
-      window.addEventListener('load', () => {
-        // Delay fade out by 2 seconds
-        setTimeout(() => {
-          document.body.classList.add('loaded');
-        }, 2000);
-      });
-    </script>
+  <body class="bg-white text-gray-900 font-sans antialiased">
+    <Preloader />
+    <Nav class="fixed w-full z-50 backdrop-blur-md bg-white/50 shadow-sm" />
+    <main class="pt-24">
+      <slot />
+    </main>
   </body>
 </html>

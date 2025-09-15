@@ -1,31 +1,33 @@
-<nav class="fixed w-full z-50 shadow-none">
+<nav class="fixed w-full z-50 backdrop-blur-md shadow-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
+    <div class="flex justify-between h-20 items-center">
       <!-- Logo -->
       <div class="flex-shrink-0 flex items-center">
-        <a href="/" class="text-white font-bold text-2xl">Donald</a>
+        <a href="/" class="text-2xl font-serif text-gray-900 tracking-wide hover:text-amber-500 transition-colors duration-300">
+          Donald
+        </a>
       </div>
 
       <!-- Desktop Menu -->
-      <div class="hidden md:flex md:space-x-8 md:items-center">
-        <a href="/" class="group relative text-gray-500 hover:text-black transition-colors duration-300">
-         Le portail
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+      <div class="hidden md:flex md:space-x-10 md:items-center">
+        <a href="/" class="group relative text-gray-700 hover:text-amber-500 transition-colors duration-300 font-medium">
+          Le portail
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <a href="/contact" class="group relative text-gray-500 hover:text-black transition-colors duration-300">
+        <a href="/contact" class="group relative text-gray-700 hover:text-amber-500 transition-colors duration-300 font-medium">
           Porte fermée
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <a href="/aboutus" class="group relative text-gray-500 hover:text-black transition-colors duration-300">
+        <a href="/aboutus" class="group relative text-gray-700 hover:text-amber-500 transition-colors duration-300 font-medium">
           Mon univers
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
       </div>
 
-          <!-- Mobile Menu Button -->
+      <!-- Mobile Menu Button -->
       <div class="flex items-center md:hidden">
         <button 
-          class="text-gray-500 hover:text-black transition-colors duration-300 focus:outline-none"
+          class="text-gray-700 hover:text-amber-500 transition-colors duration-300 focus:outline-none"
           onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,12 +38,10 @@
     </div>
   </div>
 
-
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
-    <a href="/" class="block text-black hover:underline transition px-3 py-2 rounded">Le portail</a>
-    <a href="/services" class="block text-black hover:underline transition px-3 py-2 rounded"> Porte fermée</a>
-    <a href="/news" class="block text-black hover:underline transition px-3 py-2 rounded">Mon univers</a>
-
+  <div id="mobile-menu" class="md:hidden hidden px-4 pt-4 pb-3 space-y-2 bg-white/80 backdrop-blur-md shadow-inner rounded-b-lg">
+    <a href="/" class="block text-gray-900 hover:text-amber-500 transition px-3 py-2 rounded font-medium">Le portail</a>
+    <a href="/contact" class="block text-gray-900 hover:text-amber-500 transition px-3 py-2 rounded font-medium">Porte fermée</a>
+    <a href="/aboutus" class="block text-gray-900 hover:text-amber-500 transition px-3 py-2 rounded font-medium">Mon univers</a>
   </div>
 </nav>
