@@ -35,7 +35,7 @@ import Nav from "../components/nav.astro";
       <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Élégance</span>
     </div>
     <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
-      <video autoplay muted loop playsinline class="w-full h-full object-cover brightness-50 transition duration-700">
+      <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover brightness-50 transition duration-700">
         <source src="/videos/discipline.mp4" type="video/mp4" />
       </video>
       <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Discipline</span>
@@ -97,12 +97,22 @@ window.addEventListener('load', () => {
         if(word) {
           word.style.transition = 'opacity 1s ease 0.5s';
           word.style.opacity = '1';
-          
         }
+        
       });
+      const video = document.querySelector('video');
+video?.play().catch(() => {
+  console.log('Autoplay blocked — waiting for user interaction');
+  const clickHandler = () => {
+    video.play();
+    window.removeEventListener('click', clickHandler);
+  };
+  window.addEventListener('click', clickHandler);
+});
 
     }, 1000); // wait for preloader fade-out
   }, 1500); // wait for preloader text fade-in
+  
 });
 </script>
 
