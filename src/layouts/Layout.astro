@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Nav from "../components/nav.astro";
-import Preloader from "../components/preloader.astro";
+
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -11,8 +11,8 @@ import Preloader from "../components/preloader.astro";
     <title>Mon portail</title>
   </head>
   <body class="bg-white text-gray-900 font-sans antialiased">
-    <Preloader />
-    <Nav class="fixed w-full z-50 backdrop-blur-md bg-white/50 shadow-sm" />
+   
+    <Nav/>
     <main class="pt-24">
       <slot />
     </main>
