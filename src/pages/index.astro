@@ -97,21 +97,8 @@ window.addEventListener('load', () => {
         if(word) {
           word.style.transition = 'opacity 1s ease 0.5s';
           word.style.opacity = '1';
-
+          
         }
-        images.forEach(imgContainer => {
-  imgContainer.style.transition = 'opacity 1.5s ease';
-  imgContainer.style.opacity = '1';
-
-  const word = imgContainer.querySelector('.image-word');
-  if(word) {
-    word.style.transition = 'opacity 1s ease 0.5s';
-    word.style.opacity = '1';
-  }
-
-  const video = imgContainer.querySelector('video');
-  video?.play().catch(() => console.log('Autoplay blocked on mobile'));
-});
       });
 
     }, 1000); // wait for preloader fade-out
