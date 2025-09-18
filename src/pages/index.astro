@@ -35,21 +35,9 @@ import Nav from "../components/nav.astro";
       <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Élégance</span>
     </div>
     <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
-     <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
-  <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    preload="auto"
-    poster="/videos/discipline-poster.jpg"
-    class="w-full h-full object-cover brightness-50 transition duration-700"
-  >
-    <source src="/videos/discipline.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Discipline</span>
-</div>
+      <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover brightness-50 transition duration-700">
+        <source src="/videos/discipline.mp4" type="video/mp4" />
+      </video>
       <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Discipline</span>
     </div>
     <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
@@ -112,17 +100,15 @@ window.addEventListener('load', () => {
         }
         
       });
-  const video = document.querySelector('video');
-  if (!video) return;
-
-  // Try to play; if blocked, play on first user interaction
-  video.play().catch(() => {
-    const clickHandler = () => {
-      video.play();
-      window.removeEventListener('click', clickHandler);
-    };
-    window.addEventListener('click', clickHandler);
-  });
+      const video = document.querySelector('video');
+video?.play().catch(() => {
+  console.log('Autoplay blocked — waiting for user interaction');
+  const clickHandler = () => {
+    video.play();
+    window.removeEventListener('click', clickHandler);
+  };
+  window.addEventListener('click', clickHandler);
+});
 
     }, 1000); // wait for preloader fade-out
   }, 1500); // wait for preloader text fade-in
