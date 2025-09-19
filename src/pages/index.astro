@@ -14,7 +14,7 @@ import Nav from "../components/nav.astro";
     <!-- Navigation -->
     <Nav/>
 
-    <!-- Preloader -->
+ 
   <!-- Preloader -->
 <div id="preloader" class="fixed inset-0 flex flex-col justify-center items-center z-[9999] bg-white">
   <h1 id="preloader-h1" class="text-4xl md:text-6xl font-serif text-gray-900 tracking-wide animate-pulse">
@@ -27,20 +27,21 @@ import Nav from "../components/nav.astro";
   </div>
 </div>
 
+
 <!-- Main hero section -->
 <section id="index-content" class="w-screen h-screen relative overflow-hidden opacity-0">
   <div class="flex flex-col md:flex-row h-full">
     <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
       <img 
         src="/images/elegance.png" 
-        class="w-full h-full object-cover brightness-50 hover:brightness-100 transition duration-700" 
+        class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700" 
       />
       <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Élégance</span>
     </div>
     <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
       <video 
         autoplay muted loop playsinline preload="auto" 
-        class="w-full h-full object-cover brightness-50 hover:brightness-100 transition duration-700"
+        class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700"
       >
         <source src="/videos/discipline.mp4" type="video/mp4" />
       </video>
@@ -49,12 +50,61 @@ import Nav from "../components/nav.astro";
     <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
       <img 
         src="/images/luxury.png" 
-        class="w-full h-full object-cover brightness-50 hover:brightness-100 transition duration-700" 
+        class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700" 
       />
       <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Luxe</span>
     </div>
   </div>
 </section>
+
+<!-- About me -->
+<section class="w-screen py-32 bg-gray-50 relative overflow-hidden ">
+     <div class="text-center mt-16 mb-8">
+      <h2 class="text-5xl font-serif text-gray-900 mb-6">I am Donald</h2>
+      <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
+        Et et diam consetetur labore magna. Takimata invidunt rebum invidunt eirmod rebum, et dolor amet et et rebum amet ipsum.
+      </p>
+      <a href="/portfolio" class="inline-block mt-8 px-8 py-3 bg-amber-500 text-white font-medium rounded-lg hover:bg-amber-600 transition-colors duration-300">
+       Contact me
+      </a>
+    </div>
+  </div>
+  <!-- Decorative background shapes -->
+  <div class="absolute -top-20 -left-20 w-96 h-96 bg-amber-100 rounded-full mix-blend-multiply opacity-20 animate-pulse-slow"></div>
+  <div class="absolute -bottom-24 -right-16 w-80 h-80 bg-gray-900 rounded-full mix-blend-multiply opacity-10 animate-pulse-slow"></div>
+
+  <div class="max-w-6xl mx-auto px-6 flex flex-col gap-16 relative z-10">
+
+    <!-- Layered Trait Panels -->
+    <div class="flex flex-col md:flex-row gap-8">
+      <div class="flex-1 bg-white shadow-xl rounded-3xl p-12 transform transition-transform duration-700 hover:scale-105 hover:-translate-y-2">
+        <h3 class="text-4xl font-serif text-gray-900 mb-4">Élégance</h3>
+        <p class="text-gray-600">
+          Duo erat et nonumy dolor dolor rebum, duo dolores justo nonumy at. Clita sanctus et ipsum sanctus no et. Amet.
+        </p>
+      </div>
+      <div class="flex-1 bg-white shadow-xl rounded-3xl p-12 transform transition-transform duration-700 hover:scale-105 hover:-translate-y-2">
+        <h3 class="text-4xl font-serif text-gray-900 mb-4">Discipline</h3>
+        <p class="text-gray-600">
+          Duo erat et nonumy dolor dolor rebum, duo dolores justo nonumy at. Clita sanctus et ipsum sanctus no et. Amet.
+        </p>
+      </div>
+      <div class="flex-1 bg-white shadow-xl rounded-3xl p-12 transform transition-transform duration-700 hover:scale-105 hover:-translate-y-2">
+        <h3 class="text-4xl font-serif text-gray-900 mb-4">Luxe</h3>
+        <p class="text-gray-600">
+          Duo erat et nonumy dolor dolor rebum, duo dolores justo nonumy at. Clita sanctus et ipsum sanctus no et. Amet.
+        </p>
+      </div>
+    </div>
+
+   
+ 
+</section>
+
+
+
+
+
 
 <script type="module">
 window.addEventListener('load', () => {
@@ -62,6 +112,7 @@ window.addEventListener('load', () => {
   const h1 = document.getElementById('preloader-h1');
   const images = document.querySelectorAll('.image-container');
   const mainSection = document.getElementById('index-content');
+  const fadeDuration = '1.5s';
 
   // STEP 1: Fade out preloader completely
   setTimeout(() => {
@@ -94,36 +145,43 @@ window.addEventListener('load', () => {
         h1.style.transform = 'translate(-50%, -50%)';
         h1.style.zIndex = 20;
         mainSection.prepend(h1);
-      }, 1200);
 
-      // STEP 3: Fade in index content including images & words
-      mainSection.style.transition = 'opacity 1.5s ease';
-      mainSection.style.opacity = '1';
-      images.forEach(imgContainer => {
-        imgContainer.style.transition = 'opacity 1.5s ease';
-        imgContainer.style.opacity = '1';
-        const word = imgContainer.querySelector('.image-word');
-        if(word) {
-          word.style.transition = 'opacity 1s ease 0.5s';
-          word.style.opacity = '1';
-        }
-        
-      });
-      const video = document.querySelector('video');
-video?.play().catch(() => {
-  console.log('Autoplay blocked — waiting for user interaction');
-  const clickHandler = () => {
-    video.play();
-    window.removeEventListener('click', clickHandler);
-  };
-  window.addEventListener('click', clickHandler);
-});
+       
+        mainSection.style.transition = `opacity ${fadeDuration} ease`;
+        mainSection.style.opacity = '1';
+
+        images.forEach(imgContainer => {
+          imgContainer.style.transition = `opacity ${fadeDuration} ease`;
+          imgContainer.style.opacity = '1';
+
+          const word = imgContainer.querySelector('.image-word');
+          if(word) {
+            word.style.transition = `opacity ${fadeDuration} ease`;
+            word.style.opacity = '1';
+          }
+        });
+
+        h1.style.transition = `opacity ${fadeDuration} ease`;
+        h1.style.opacity = '1';
+
+        // Play video if exists
+        const video = document.querySelector('video');
+        video?.play().catch(() => {
+          console.log('Autoplay blocked — waiting for user interaction');
+          const clickHandler = () => {
+            video.play();
+            window.removeEventListener('click', clickHandler);
+          };
+          window.addEventListener('click', clickHandler);
+        });
+
+      }, 1200); // wait for H1 movement to finish
 
     }, 1000); // wait for preloader fade-out
   }, 1500); // wait for preloader text fade-in
-  
 });
 </script>
+
 
 
   </body>
