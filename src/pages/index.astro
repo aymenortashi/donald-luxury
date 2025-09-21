@@ -8,197 +8,232 @@ import Nav from "../components/nav.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Donald Luxury</title>
+    <style>
+      /* GPU hint for smoother animation */
+      #preloader-h1 {
+        will-change: transform, color, opacity, left, top;
+      }
+      #index-content,
+      .image-container,
+      .image-word {
+        will-change: opacity, transform;
+      }
+    </style>
   </head>
   <body class="bg-white text-gray-900 font-sans antialiased">
 
     <!-- Navigation -->
     <Nav/>
 
- 
-  <!-- Preloader -->
-<div id="preloader" class="fixed inset-0 flex flex-col justify-center items-center z-[9999] bg-white">
-  <h1 id="preloader-h1" class="text-4xl md:text-6xl font-serif text-gray-900 tracking-wide animate-pulse">
-    Donald
-  </h1>
-  <div id="preloader-words" class="flex space-x-4 text-lg md:text-2xl text-gray-500 mt-2">
-    <span class="word">Élégance</span>
-    <span class="word">Discipline</span>
-    <span class="word">Luxe</span>
-  </div>
-</div>
-
-
-<!-- Main hero section -->
-<section id="index-content" class="w-screen h-screen relative overflow-hidden opacity-0">
-  <div class="flex flex-col md:flex-row h-full">
-    <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
-      <img 
-        src="/images/elegance.png" 
-        class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700" 
-      />
-      <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Élégance</span>
-    </div>
-    <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
-      <video 
-        autoplay muted loop playsinline preload="auto" 
-        class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700"
-      >
-        <source src="/videos/discipline.mp4" type="video/mp4" />
-      </video>
-      <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Discipline</span>
-    </div>
-    <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
-      <img 
-        src="/images/luxury.png" 
-        class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700" 
-      />
-      <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Luxe</span>
-    </div>
-  </div>
-</section>
-
-<!-- About me -->
-<section id="about-me" class="relative bg-gray-50 py-24 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-    <!-- Left: Text Content -->
-    <div class="space-y-8 about-text">
-      <h2 class="text-5xl md:text-6xl font-serif text-gray-900 leading-tight opacity-0 translate-y-6 transition-all duration-700">
-        About <span class="text-amber-500">Me</span>
-      </h2>
-      <p class="text-lg text-gray-600 leading-relaxed opacity-0 translate-y-6 transition-all duration-700 delay-150">
-        I’m a creator driven by elegance and precision.  
-        My work blends modern aesthetics with timeless values,  
-        capturing the subtle beauty in every detail.
-      </p>
-      <p class="text-lg text-gray-600 leading-relaxed opacity-0 translate-y-6 transition-all duration-700 delay-300">
-        Beyond the craft, I believe in discipline and growth— 
-        the quiet pursuit of mastery that shapes both art and life.
-      </p>
-
-      <div class="flex gap-6 pt-4 opacity-0 translate-y-6 transition-all duration-700 delay-450">
-        <a href="/projects"
-           class="px-6 py-3 rounded-full bg-amber-500 text-white font-medium 
-                  shadow-lg hover:bg-amber-600 transition-colors duration-300">
-          View My Work
-        </a>
-        <a href="/contact"
-           class="px-6 py-3 rounded-full border border-amber-500 text-amber-500 font-medium
-                  hover:bg-amber-50 transition-colors duration-300">
-          Contact Me
-        </a>
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 flex flex-col justify-center items-center z-[9999] bg-white">
+      <h1 id="preloader-h1" class="text-4xl md:text-6xl font-serif text-gray-900 tracking-wide animate-pulse">
+        Donald
+      </h1>
+      <div id="preloader-words" class="flex space-x-4 text-lg md:text-2xl text-gray-500 mt-2">
+        <span class="word">ELegance</span>
+        <span class="word">Discipline</span>
+        <span class="word">Luxe</span>
       </div>
     </div>
 
-    <!-- Right: Image with layered effect -->
-    <div class="relative group about-image opacity-0 translate-y-6 transition-all duration-700 delay-600">
-      <div class="absolute -top-6 -left-6 w-full h-full border-4 border-amber-500 rounded-lg transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
-      <img
-        src="/images/coolimg.png"
-        alt="Portrait of me"
-        class="relative z-10 rounded-lg shadow-2xl object-cover w-full h-[700px] transition-transform duration-700 group-hover:scale-105"
-      />
-    </div>
+    <!-- Main hero section -->
+    <section id="index-content" class="w-screen h-screen relative overflow-hidden opacity-0">
+      <div class="flex flex-col md:flex-row h-full">
+        <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
+          <img 
+            src="/images/elegance.png" 
+            class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700" 
+          />
+          <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Élégance</span>
+        </div>
+        <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
+          <video 
+            autoplay muted loop playsinline preload="auto" 
+            class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700"
+          >
+            <source src="/videos/discipline.mp4" type="video/mp4" />
+          </video>
+          <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Discipline</span>
+        </div>
+        <div class="image-container relative md:w-1/3 w-full h-1/3 md:h-full overflow-hidden opacity-0">
+          <img 
+            src="/images/luxury.png" 
+            class="w-full h-full object-cover brightness-40 hover:brightness-100 transition duration-700" 
+          />
+          <span class="image-word absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg md:text-2xl opacity-0">Luxe</span>
+        </div>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <!-- About me -->
+    <section id="about-me" class="relative bg-gray-50 py-24 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Text Content -->
+        <div class="space-y-8 about-text">
+          <h2 class="text-5xl md:text-6xl font-serif text-gray-900 leading-tight opacity-0 translate-y-6 transition-all duration-700">
+            About <span class="text-amber-500">Me</span>
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed opacity-0 translate-y-6 transition-all duration-700 delay-150">
+            I’m a creator driven by elegance and precision.  
+            My work blends modern aesthetics with timeless values,  
+            capturing the subtle beauty in every detail.
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed opacity-0 translate-y-6 transition-all duration-700 delay-300">
+            Beyond the craft, I believe in discipline and growth— 
+            the quiet pursuit of mastery that shapes both art and life.
+          </p>
+          <div class="flex gap-6 pt-4 opacity-0 translate-y-6 transition-all duration-700 delay-450">
+            <a href="/projects"
+               class="px-6 py-3 rounded-full bg-amber-500 text-white font-medium 
+                      shadow-lg hover:bg-amber-600 transition-colors duration-300">
+              View My Work
+            </a>
+            <a href="/contact"
+               class="px-6 py-3 rounded-full border border-amber-500 text-amber-500 font-medium
+                      hover:bg-amber-50 transition-colors duration-300">
+              Contact Me
+            </a>
+          </div>
+        </div>
 
+        <!-- Right: Image with layered effect -->
+        <div class="relative group about-image opacity-0 translate-y-6 transition-all duration-700 delay-600">
+          <div class="absolute -top-6 -left-6 w-full h-full border-4 border-amber-500 rounded-lg transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+          <img
+            src="/images/coolimg.png"
+            alt="Portrait of me"
+            class="relative z-10 rounded-lg shadow-2xl object-cover w-full h-[700px] transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
+      </div>
+    </section>
 
+    <!-- Email section -->
+    <section id="email-section"
+             class="opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out
+                    bg-gradient-to-br from-gray-50 via-white to-gray-100 py-24">
+      <div class="max-w-4xl mx-auto px-6 text-center space-y-10 email-text">
+        <h2 class="text-4xl md:text-5xl font-serif text-gray-900">
+          Stay <span class="text-amber-500">Connected</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          Receive occasional updates and behind-the-scenes stories.  
+          No spam—just curated notes of inspiration.
+        </p>
 
+        <form
+          action="#"
+          method="post"
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 max-w-2xl mx-auto"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email address"
+            required
+            class="w-full sm:flex-1 px-6 py-4 rounded-full border border-gray-300
+                   focus:border-amber-500 focus:ring-2 focus:ring-amber-200
+                   outline-none text-gray-800 placeholder-gray-400 transition"
+          />
+          <button
+            type="submit"
+            class="mt-4 sm:mt-0 sm:ml-4 px-8 py-4 rounded-full bg-amber-500 text-white font-medium 
+                   shadow-lg hover:bg-amber-600 transition-colors duration-300">
+            Subscribe
+          </button>
+        </form>
 
+        <p class="text-sm text-gray-500 mt-4">
+          You can unsubscribe anytime. Your privacy is respected.
+        </p>
+      </div>
+    </section>
 
+    <script type="module">
+    window.addEventListener('load', () => {
+      const preloader   = document.getElementById('preloader');
+      const h1          = document.getElementById('preloader-h1');
+      const images      = document.querySelectorAll('.image-container');
+      const mainSection = document.getElementById('index-content');
+      const fadeDuration = '1.5s';
 
-<script type="module">
-window.addEventListener('load', () => {
-  const preloader   = document.getElementById('preloader');
-  const h1          = document.getElementById('preloader-h1');
-  const images      = document.querySelectorAll('.image-container');
-  const mainSection = document.getElementById('index-content');
-  const fadeDuration = '1.5s';
-
-  // ---- Reveal About section on scroll ----
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('opacity-0','translate-y-6');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('.about-text > *, .about-image')
-          .forEach(el => observer.observe(el));
-
-  // ---- Preloader fade & H1 move ----
-  setTimeout(() => {
-    preloader.style.transition = 'opacity 1s ease';
-    preloader.style.opacity    = '0';
-
-    setTimeout(() => {
-      preloader.remove();
-
-      // Move H1
-      const heroX = window.innerWidth / 2;
-      const heroY = window.innerHeight / 2;
-      const h1Rect = h1.getBoundingClientRect();
-
-      h1.style.position = 'fixed';
-      h1.style.left     = `${h1Rect.left}px`;
-      h1.style.top      = `${h1Rect.top}px`;
-      h1.style.transition = 'all 1.2s ease, color 1.2s ease';
-      h1.style.zIndex   = 50;
-
-      h1.getBoundingClientRect(); // force reflow
-
-      h1.style.left     = `${heroX}px`;
-      h1.style.top      = `${heroY}px`;
-      h1.style.transform= 'translate(-50%, -50%)';
-      h1.style.color    = 'white';
-
-      setTimeout(() => {
-        h1.style.position = 'absolute';
-        h1.style.left     = '50%';
-        h1.style.top      = '50%';
-        h1.style.transform= 'translate(-50%, -50%)';
-        h1.style.zIndex   = 20;
-        mainSection.prepend(h1);
-
-        mainSection.style.transition = `opacity ${fadeDuration} ease`;
-        mainSection.style.opacity    = '1';
-
-        images.forEach(img => {
-          img.style.transition = `opacity ${fadeDuration} ease`;
-          img.style.opacity    = '1';
-
-          const word = img.querySelector('.image-word');
-          if (word) {
-            word.style.transition = `opacity ${fadeDuration} ease`;
-            word.style.opacity    = '1';
+      // Reveal About + Email section on scroll
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0','translate-y-6');
+            obs.unobserve(entry.target);
           }
         });
+      }, { threshold: 0.2 });
 
-        h1.style.transition = `opacity ${fadeDuration} ease`;
-        h1.style.opacity    = '1';
+      document.querySelectorAll('.about-text > *, .about-image')
+              .forEach(el => observer.observe(el));
+      document.querySelectorAll('#email-section, #email-section .email-text > *')
+              .forEach(el => observer.observe(el));
 
-        // Play video if Safari allows
-        const video = document.querySelector('video');
-        video?.play().catch(() => {
-          // Safari will require a user click if autoplay is blocked
-          const clickHandler = () => {
-            video.play();
-            window.removeEventListener('click', clickHandler);
-          };
-          window.addEventListener('click', clickHandler);
-        });
+      // Preloader fade & H1 move (optimised)
+      setTimeout(() => {
+        preloader.style.transition = 'opacity 1s ease';
+        preloader.style.opacity    = '0';
+        setTimeout(() => {
+          preloader.remove();
+          const heroX = window.innerWidth / 2;
+          const heroY = window.innerHeight / 2;
+          const h1Rect = h1.getBoundingClientRect();
 
+          // Initial fixed position
+          h1.style.position = 'fixed';
+          h1.style.left     = `${h1Rect.left}px`;
+          h1.style.top      = `${h1Rect.top}px`;
+          h1.style.zIndex   = 50;
+
+          // Defer animation to next frame to avoid layout thrash
+          requestAnimationFrame(() => {
+            h1.style.transition = 'all 1.2s ease, color 1.2s ease';
+            h1.style.left       = `${heroX}px`;
+            h1.style.top        = `${heroY}px`;
+            h1.style.transform  = 'translate(-50%, -50%)';
+            h1.style.color      = 'white';
+          });
+
+          setTimeout(() => {
+            h1.style.position = 'absolute';
+            h1.style.left     = '50%';
+            h1.style.top      = '50%';
+            h1.style.transform= 'translate(-50%, -50%)';
+            h1.style.zIndex   = 20;
+            mainSection.prepend(h1);
+
+            mainSection.style.transition = `opacity ${fadeDuration} ease`;
+            mainSection.style.opacity    = '1';
+
+            images.forEach(img => {
+              img.style.transition = `opacity ${fadeDuration} ease`;
+              img.style.opacity    = '1';
+              const word = img.querySelector('.image-word');
+              if (word) {
+                word.style.transition = `opacity ${fadeDuration} ease`;
+                word.style.opacity    = '1';
+              }
+            });
+
+            h1.style.transition = `opacity ${fadeDuration} ease`;
+            h1.style.opacity    = '1';
+
+            const video = document.querySelector('video');
+            video?.play().catch(() => {
+              const clickHandler = () => {
+                video.play();
+                window.removeEventListener('click', clickHandler);
+              };
+              window.addEventListener('click', clickHandler);
+            });
+          }, 900);
+        }, 700);
       }, 900);
-
-    }, 700);
-  }, 900);
-});
-</script>
-
-
-
+    });
+    </script>
   </body>
 </html>

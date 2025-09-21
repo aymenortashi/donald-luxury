@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+
+  <!-- Simple Universe Preloader -->
+  <div id="universe-preloader"
+       class="fixed inset-0 flex flex-col items-center justify-center
+              bg-gradient-to-br from-black via-gray-900 to-black
+              animate-gradientMove z-[9999]">
+    <h1 id="universe-h1"
+        class="text-4xl md:text-6xl font-serif text-white tracking-wide opacity-0">
+      Entering Donald’s World
+    </h1>
+  </div>
+
+  <!-- Page Content -->
+  <section id="luxury"
+    class="relative flex flex-col items-center justify-center
+           min-h-screen bg-[#F5EFE6] text-center px-6">
+
+    <!-- optional gentle overlay gradient -->
+    <div class="absolute inset-0 pointer-events-none
+                bg-gradient-to-b from-transparent via-[#EDE5D9]/40 to-[#F5EFE6]">
+    </div>
+
+    <h1 class="relative text-6xl md:text-7xl font-serif tracking-wide
+               text-[#BFA06A] drop-shadow-md animate-fade-in">
+      Luxury
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-lg md:text-xl text-[#3B3A36] leading-relaxed
+              animate-fade-in delay-200">
+      A celebration of timeless elegance and quiet opulence.
+    </p>
+
+    <a href="#next"
+       class="mt-10 px-8 py-4 rounded-full border border-[#BFA06A] text-[#BFA06A]
+              hover:bg-[#BFA06A] hover:text-[#F5EFE6]
+              transition-colors duration-500 animate-fade-in delay-100">
+      Discover More
+    </a>
+  </section>
+
+  <script type="module">
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('universe-preloader');
+    const h1        = document.getElementById('universe-h1');
+    const main      = document.getElementById('luxury'); // corrected: target real content
+
+    // Fade intro text in quickly (GPU hint already set in CSS)
+    setTimeout(() => {
+      h1.classList.add('opacity-100','transition-opacity','duration-[1500ms]');
+    }, 400);
+
+    // Fade out preloader background
+    setTimeout(() => {
+      preloader.style.transition = 'opacity 1.2s ease';
+      preloader.style.opacity    = '0';
+
+      // Defer DOM removal to next frame to avoid paint jank
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          preloader.remove();
+          main.style.opacity = '1';
+        });
+      }, 1200);
+    }, 2200);
+  });
+  </script>
+
+  <style>
+  body {
+    background: #F5EFE6; /* site background */
+  }
+
+  /* GPU hints for smoother animation */
+  #universe-h1,
+  #universe-preloader {
+    will-change: opacity, transform, background-position;
+  }
+  #luxury {
+    will-change: opacity;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1.6s ease forwards;
+  }
+
+  h1::after {
+    content:'';
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    transform:translateX(-50%);
+    width:80px;
+    height:2px;
+    background:linear-gradient(90deg,#C2A670,#F5EFE6,#C2A670);
+    background-size:200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%,100% { background-position:0% 50%; }
+    50%     { background-position:100% 50%; }
+  }
+  @keyframes gradientMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradientMove {
+    background: linear-gradient(-45deg,
+      #F5EFE6,
+      #E9DFD0,
+      #D6C8B8,
+      #F9EFD8
+    );
+    background-size: 300% 300%;
+    animation: gradientMove 18s ease infinite;
+  }
+
+  #universe-h1 {
+    transition: opacity 1.5s ease;
+  }
+  </style>
+
+</Layout>
