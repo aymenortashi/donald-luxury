@@ -2,7 +2,7 @@
 import "../styles/nav.css"
 ---
 <nav id="main-nav" class="w-full z-20 top-0 left-0 bg-black/10 sm:bg-black/20  sm:fixed stick p-3 sm:p-4 animate-fade-down transition-all duration-300 relative flex items-center justify-between">
-    <div class="hidden sm:flex flex-1 justify-center gap-6 text-lg font-medium">
+  <div class="hidden sm:flex flex-1 justify-center gap-6 text-lg font-medium">
     <a href="/" class="relative px-3 py-1 text-white no-underline">Le portail</a>
     <a href="/monunivers" class="relative px-3 py-1 text-white ">Mon Univers</a>
     <a href="/contact" class="relative px-3 py-1 text-white ">Porte Fermée</a>
@@ -65,31 +65,13 @@ import "../styles/nav.css"
 </style>
 
 <script is:inline>
-const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
-const nav = document.getElementById('main-nav');
+ const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-// ---- Mobile menu toggle ----
-menuToggle.addEventListener("click", () => {
-  const isOpen = mobileMenu.classList.toggle("scale-y-100");
-  mobileMenu.classList.toggle("scale-y-0", !isOpen);
-  document.body.classList.toggle("menu-open", isOpen);
-  menuToggle.setAttribute("aria-expanded", isOpen);
-});
-
-// ---- Hide/Show nav on scroll ----
-let lastScrollY = window.scrollY;
-window.addEventListener('scroll', () => {
-  const currentY = window.scrollY;
-
-  if (currentY > lastScrollY && currentY > 80) {
-    // scrolling down → hide nav
-    nav.style.transform = 'translateY(-100%)';
-  } else {
-    // scrolling up → show nav
-    nav.style.transform = 'translateY(0)';
-  }
-
-  lastScrollY = currentY;
-});
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("scale-y-100");
+    mobileMenu.classList.toggle("scale-y-0", !isOpen);
+    document.body.classList.toggle("menu-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen);
+  });
 </script>

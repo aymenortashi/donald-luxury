@@ -16,32 +16,30 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <!-- Page Content -->
-  <section id="luxury"
-    class="relative flex flex-col items-center justify-center
-           min-h-screen bg-[#F5EFE6] text-center px-6">
+<section id="luxury"
+         class="relative flex flex-col items-center justify-center
+                bg-[#F5EFE6] text-center px-6
+                pt-0
+                sm:min-h-[calc(100vh-5rem)]">
+  <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-[#EDE5D9]/40 to-[#F5EFE6]"></div>
 
-    <!-- optional gentle overlay gradient -->
-    <div class="absolute inset-0 pointer-events-none
-                bg-gradient-to-b from-transparent via-[#EDE5D9]/40 to-[#F5EFE6]">
-    </div>
+  <h1 class="relative text-6xl md:text-7xl font-serif tracking-wide text-[#BFA06A] drop-shadow-md animate-fade-in">
+    Luxury
+  </h1>
 
-    <h1 class="relative text-6xl md:text-7xl font-serif tracking-wide
-               text-[#BFA06A] drop-shadow-md animate-fade-in">
-      Luxury
-    </h1>
+  <p class="mt-6 max-w-2xl text-lg md:text-xl text-[#3B3A36] leading-relaxed animate-fade-in delay-200">
+    A celebration of timeless elegance and quiet opulence.
+  </p>
 
-    <p class="mt-6 max-w-2xl text-lg md:text-xl text-[#3B3A36] leading-relaxed
-              animate-fade-in delay-200">
-      A celebration of timeless elegance and quiet opulence.
-    </p>
+  <a href="/description"
+     class="mt-10 px-8 py-4 rounded-full border border-[#BFA06A] text-[#BFA06A]
+            hover:bg-[#BFA06A] hover:text-[#F5EFE6]
+            transition-colors duration-500 animate-fade-in delay-100">
+    Discover More
+  </a>
+</section>
 
-    <a href="#next"
-       class="mt-10 px-8 py-4 rounded-full border border-[#BFA06A] text-[#BFA06A]
-              hover:bg-[#BFA06A] hover:text-[#F5EFE6]
-              transition-colors duration-500 animate-fade-in delay-100">
-      Discover More
-    </a>
-  </section>
+
 
   <script type="module">
   window.addEventListener('load', () => {
