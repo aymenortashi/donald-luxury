@@ -2,8 +2,70 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout />
+<Layout>
 
-<p> hello world</p>
+  <!-- ========== LUXURY ========== -->
+  <section id="luxury"
+           class="min-h-screen grid md:grid-cols-2 place-items-center
+                  bg-[#F5EFE6] text-[#3B3A36]">
+    <!-- Left: Headline -->
+    <div class="flex flex-col items-center md:items-end text-center md:text-right p-8">
+      <h1 class="text-6xl md:text-7xl font-serif text-[#BFA06A] mb-6">
+        Luxury
+      </h1>
+    </div>
+
+    <!-- Right: Paragraph -->
+    <div class="max-w-xl p-8">
+      <p class="text-lg md:text-xl leading-relaxed">
+        Luxury is a quiet statement of excellence. It lives in
+        the textures we touch and the details we notice—an artful
+        fusion of refinement and comfort that turns the everyday
+        into something extraordinary.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== DISCIPLINE ========== -->
+  <section id="discipline"
+           class="min-h-screen grid md:grid-cols-2 place-items-center
+                  bg-gray-100 text-gray-700">
+    <!-- Left: Paragraph -->
+    <div class="max-w-xl p-8 order-2 md:order-1">
+      <p class="text-lg md:text-xl leading-relaxed">
+        Discipline is the engine of lasting achievement. It is the
+        patient commitment to precision and practice—the invisible
+        force that transforms ambition into a legacy of excellence.
+      </p>
+    </div>
+
+    <!-- Right: Headline -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left p-8 order-1 md:order-2">
+      <h1 class="text-6xl md:text-7xl font-serif text-gray-800 mb-6">
+        Discipline
+      </h1>
+    </div>
+  </section>
+
+  <!-- ========== ELEGANCE ========== -->
+  <section id="elegance"
+           class="min-h-screen grid md:grid-cols-2 place-items-center
+                  bg-white text-gray-800">
+    <!-- Left: Headline -->
+    <div class="flex flex-col items-center md:items-end text-center md:text-right p-8">
+      <h1 class="text-6xl md:text-7xl font-serif text-gray-800 mb-6">
+        Elegance
+      </h1>
+    </div>
+
+    <!-- Right: Paragraph -->
+    <div class="max-w-xl p-8">
+      <p class="text-lg md:text-xl leading-relaxed">
+        Elegance is the art of simplicity perfected. It emerges from
+        balance, proportion and a quiet confidence—leaving a lasting
+        impression without ever needing to shout.
+      </p>
+    </div>
+  </section>
 
 </Layout>
